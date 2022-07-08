@@ -16,15 +16,20 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
             'baseUrl' => '/admin',
+            'cookieValidationKey' => $params['cookieValidationKey'],
         ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'identityCookie' => ['name' => '_identity-pr-new', 'httpOnly' => true],
+            //'identityCookie' => ['name' => '_identity', 'httpOnly' => true, 'domain' => $params['cookieDomain']],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            'name' => 'pr-new-ses',
+            'cookieParams' =>[
+                'httpOnly' => true,
+                //'domain' => $params['cookieDomain'],
+            ]
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
