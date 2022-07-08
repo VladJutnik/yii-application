@@ -62,6 +62,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        //Статистика посещений
+        $this->on(yii\web\Controller::EVENT_AFTER_ACTION, function ($event) {
+            \backend\modules\statistics\CountKsl::init();
+        });
         return $this->render('index');
     }
 
