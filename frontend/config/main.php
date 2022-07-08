@@ -18,7 +18,7 @@ return [
             'cookieValidationKey' => $params['cookieValidationKey'],
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => \common\auth\Identity::class,
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-pr-new', 'httpOnly' => true],
             //'identityCookie' => ['name' => '_identity', 'httpOnly' => true, 'domain' => $params['cookieDomain']],

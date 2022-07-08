@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\auth\Identity;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -46,7 +47,15 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post'], //для выходы только по кнопке
+                    /*  [
+                    *       'create' => ['GET', 'POST'],
+                    *       'update' => ['GET', 'PUT', 'POST'],
+                    *       'delete' => ['POST', 'DELETE'],
+                    *       'author-comment' => ['POST', 'DELETE'],
+                    *       '*' => ['GET'],
+                    *   ]
+                    */
                 ],
             ],
         ];
@@ -227,7 +236,7 @@ class SiteController extends Controller
         } catch (InvalidArgumentException $e) {
             throw new BadRequestHttpException($e->getMessage());
         }
-        if (($user = $model->verifyEmail()) && Yii::$app->user->login($user)) {
+        if (($user = $model->verifyEmail()) && Yii::$app->getUser()->login(new Identity($user))) {
             Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
             return $this->goHome();
         }
