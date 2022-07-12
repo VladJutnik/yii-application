@@ -12,6 +12,7 @@ use yii\base\Model;
 class LoginForm extends Model
 {
     public $username;
+    public $check;
     public $password;
     public $rememberMe = true;
 
@@ -30,6 +31,12 @@ class LoginForm extends Model
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
+            [
+                'check',
+                'compare',
+                'compareValue' => 1,
+                'message' => 'Необходимо Ваше согласие на обработку персональных данных'
+            ],
         ];
     }
 

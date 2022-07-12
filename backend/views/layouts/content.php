@@ -1,51 +1,35 @@
 <?php
 /* @var $content string */
 
+use hail812\adminlte\widgets\Alert;
 use yii\bootstrap4\Breadcrumbs;
 ?>
-<div class="content-wrapper">
-<!--    <h1 class="m-0 text-dark">-->
-        <?php
-        if (!is_null($this->title)) {?>
-            <h2 class="text-center"><?= \yii\helpers\Html::encode($this->title);?></h2>
-        <?} else {
-            echo \yii\helpers\Inflector::camelize($this->context->id);
-        }
-        ?>
-<!--    </h1>-->
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-<!--                    <h1 class="m-0 text-dark">-->
-<!--                        --><?php
-//                        if (!is_null($this->title)) {?>
-<!--                            <h1 class="text-center">--><?//= \yii\helpers\Html::encode($this->title);?><!--</h1>-->
-<!--                        --><?//} else {
-//                            echo \yii\helpers\Inflector::camelize($this->context->id);
-//                        }
-//                        ?>
-<!--                    </h1>-->
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <?php
-                    echo Breadcrumbs::widget([
-                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                        'options' => [
-                            'class' => 'float-sm-right'
-                        ]
-                    ]);
-                    ?>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+<?php
+/*echo Breadcrumbs::widget([
+    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    'options' => [
+        'class' => 'float-sm-right'
+    ]
+]);
+*/?>
+<style>
+    .content-body {
+        /*border: #0a73bb 1px solid;*/
+        padding: 10px !important;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 11px 3px rgba(34, 60, 80, 0.2);
+    }
 
-    <!-- Main content -->
-    <div class="content">
-        <?= $content ?><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+    .content {
+        padding: 5px !important;
+    }
+</style>
+<div class="content-wrapper">
+    <section class="content">
+        <div class="content-body">
+            <?= Alert::widget() ?>
+            <?= $content ?>
+        </div>
+    </section>
 </div>
