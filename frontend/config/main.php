@@ -46,8 +46,13 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                // ...
+                '/auth/signup' => 'auths/auth/signup', //модуль статистики
             ],
+        ],
+    ],
+    'modules' => [
+        'auths' => [
+            'class' => 'common\modules\auth\AuthModule',
         ],
     ],
     'params' => $params,

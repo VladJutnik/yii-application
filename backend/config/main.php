@@ -54,6 +54,7 @@ return [
         'univirsalFunctions' => [
             'class' => 'common\components\UnivirsalFunctions',
         ],
+
     ],
     'modules' => [
         'statistica' => [

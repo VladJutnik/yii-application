@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace common\modules\auth\models;
 
 use Yii;
 use yii\base\Model;
@@ -14,6 +14,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $verifyCode;
 
 
     /**
@@ -35,9 +36,17 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+
+            ['verifyCode', 'captcha'],
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'verifyCode' => 'Verification Code',
+        ];
+    }
     /**
      * Signs user up.
      *

@@ -14,5 +14,22 @@ return [
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
+       /* 'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '/auth/signup' => 'auth/auth-view/signup', //модуль статистики
+            ],
+            /*'showScriptName' => false, //отключаем r=routes
+            'enableStrictParsing' => true, //запретить стандартные URL если не соответствуют правилам
+            'enablePrettyUrl' => true, //отключаем index.php
+            'rules' => [
+                '/' => 'site/index',
+                '/autor' => 'autor/index',
+                '/login' => 'site/login',
+                'statistics/' => 'statistics/stat/index', //модуль статистики
+            ],
+        ],*/
     ],
+
 ];
